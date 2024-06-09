@@ -1,0 +1,62 @@
+import { create } from "zustand";
+// import { persist, createJSONStorage } from 'zustand/middleware'
+
+interface Shop {
+  address: string;
+  avatarUrl: string;
+  backgroundUrl: string;
+  name: string;
+  schedules: string;
+  whatsapp: string;
+}
+
+interface Product {
+  id: string;
+  code: string;
+  description: string;
+  category: string;
+  subCategory: string;
+  sale: string;
+  imageUrl: string;
+}
+
+interface State {
+  slug: string;
+  shop: Shop;
+  products: Product[];
+  prodAux:  Product[];
+  categories: string[];
+  subCategories: string[];
+}
+
+type Actions = {
+  setSlug: (slug: string) => void;
+
+
+
+//   getSubCategories: () => string[];
+
+}
+
+export const useShopStore = create<State & Actions>((set,get) => ({
+
+  slug:'',
+  shop: {
+    address: '',
+    avatarUrl: '',
+    backgroundUrl: '',
+    name: '',
+    schedules: '',
+    whatsapp: ''
+  },
+  products: [],
+  prodAux:[],
+  categories: [],
+  subCategories: [],
+
+  setSlug: (slug) => set(() => ({ slug: slug })),
+
+
+// getSubCategories: () => get().subCategories,  
+  
+}));
