@@ -34,12 +34,6 @@ const useSignin = () => {
             }
           }
     }
-
-
-
-
-
-
     return { handleSingin  }
 
 }
