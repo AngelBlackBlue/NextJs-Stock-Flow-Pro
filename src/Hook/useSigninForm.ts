@@ -11,7 +11,7 @@ const formSchema = z.object({
 });
 
 export const useSigninForm = () => {
-  const { handleSingin } = useSignin();
+ const { handleSingin } = useSignin();
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -24,6 +24,7 @@ export const useSigninForm = () => {
   const onSubmit = (values: z.infer<typeof formSchema>) => {
     console.log(values);
     handleSingin(values);
+    
   };
 
   return {
